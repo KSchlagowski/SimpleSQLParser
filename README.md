@@ -14,6 +14,11 @@ Grammar file is taken from https://github.com/antlr/grammars-v4. See the sql.g4 
 Project is created with:
 * .NET 5.0
 * ANTLR v4
+* FluentAssertions
+
+Nugets:
+* Antlr4.Runtime.Standard
+* xUnit.net
 	
 ## Setup
 You must have .NET and ANTLR installed to run this project.
