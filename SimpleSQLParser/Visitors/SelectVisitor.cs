@@ -20,10 +20,10 @@ namespace SimpleSQLParser.Visitors
                 {
                     foreach (var result in select_core.join_clause().table_or_subquery())
                     {
-                        selectStmt.Tables.Add(result.table_name().GetText());
+                        table = result.table_name().GetText();
+                        selectStmt.Tables.Add(table);
                     }
                 }
-                System.Console.WriteLine("works");
             }
             catch(Exception)
             {
@@ -34,10 +34,13 @@ namespace SimpleSQLParser.Visitors
             {
                 try
                 {
-                    foreach (var result in context.select_core()[0].table_or_subquery())
+                    foreach (var select_core in context.select_core())
                     {
-                        table = result.table_name().GetText();
-                        selectStmt.Tables.Add(table);
+                        foreach (var result in select_core.table_or_subquery())
+                        {
+                            table = result.table_name().GetText();
+                            selectStmt.Tables.Add(table);
+                        }
                     }
                 }
                 catch(Exception ex)
@@ -48,22 +51,30 @@ namespace SimpleSQLParser.Visitors
                 if (String.IsNullOrWhiteSpace(table))
                 {
                     throw new ArgumentNullException("Given statement doesn't contain any tables.");
-
                 }
             }
 
             try
             {
-                foreach (var result in context.select_core()[0].result_column())
+                foreach (var select_core in context.select_core())
                 {
-                    column = result.expr().column_name().GetText();
-                    selectStmt.Columns.Add(column);
+                    foreach (var result in select_core.result_column())
+                    {
+                        if (result.GetText() == "*")
+                        {
+                            selectStmt.Columns.Add("ALL");
+                        }
+                        else
+                        {
+                            column = result.expr().column_name().GetText();
+                            selectStmt.Columns.Add(column);
+                        }
+                    }
                 }
             }
-            catch(Exception)
+            catch(Exception ex)
             {
-                column = "ALL";
-                selectStmt.Columns.Add(column);
+                throw ex;
             }
 
             return selectStmt;
