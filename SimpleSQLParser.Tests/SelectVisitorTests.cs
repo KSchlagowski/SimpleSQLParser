@@ -64,8 +64,6 @@ namespace SimpleSQLParser.Tests
             returnedModel.Columns[0].Should().Be("Name");
         }
 
-        //here will be test with semicolon
-
         [Fact]
         public void Parse_MoreComplexStatement_ReturnsCorrectParsedTablesAndColumns()
         {
