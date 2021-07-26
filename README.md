@@ -7,7 +7,8 @@
 * [Run](#run)
 
 ## General info
-This project is simple SELECT statement parser. The program parses the given statement and shows what tables and columns are used in it.
+This project is simple SELECT statement parser. The program parses the given statement and shows what tables and columns are used in it. 
+Grammar file is taken from https://github.com/antlr/grammars-v4. See the sql.g4 file for more information.
 	
 ## Technologies
 Project is created with:
