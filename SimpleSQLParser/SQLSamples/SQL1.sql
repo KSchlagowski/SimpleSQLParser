@@ -1,1 +1,1 @@
-SELECT Name FROM Users;
+SELECT * FROM Users;

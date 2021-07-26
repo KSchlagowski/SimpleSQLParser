@@ -1,0 +1,1 @@
+SELECT u.Name, u.Surname, p.Id, p.ProductOwner FROM Users u JOIN Product p ON Product.ProductOwner = User.FullName;

@@ -1,0 +1,1 @@
+SELECT u.Name, u.Surname, p.Id, p.ProductOwner FROM Users u, Product p;
