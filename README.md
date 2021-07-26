@@ -15,7 +15,7 @@ Project is created with:
 * .NET 5.0
 * ANTLR v4
 
-Nugets:
+NuGets:
 * Antlr4.Runtime.Standard
 * xUnit.net
 * FluentAssertions
