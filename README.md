@@ -7,7 +7,7 @@
 * [Run](#run)
 
 ## General info
-This project is simple SELECT statement parser.
+This project is simple SELECT statement parser. The program parses the given statement and shows what tables and columns are used in it.
 	
 ## Technologies
 Project is created with:
@@ -15,7 +15,7 @@ Project is created with:
 * ANTLR v4
 	
 ## Setup
-To run this project, you need to have .NET and ANTLR installed.
+You must have .NET and ANTLR installed to run this project.
 
 * ANTLR setup:
 ```
