@@ -34,4 +34,4 @@ And same for SimpleSQLParser.Tests project.
 
 ## Run
 You can parse sample SELECT statement by typing:
-`dotnet run -- "SQLSamples/SQL1.sql`
+`dotnet run -- "SQLSamples/SQL1.sql"`
