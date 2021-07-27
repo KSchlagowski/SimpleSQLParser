@@ -12,8 +12,8 @@ namespace SimpleSQLParser
     {
         static void Main(string[] args)
         {
-            SelectParser selectParser = new SelectParser();
-            ParsedSelectStatementManager parsedSelectStatementManager = new ParsedSelectStatementManager();
+            ISelectParser selectParser = new SelectParser();
+            IParsedSelectStatementManager parsedSelectStatementManager = new ParsedSelectStatementManager();
 
             string input = File.ReadAllText(args[0]);
             SelectStatement selectStmt = selectParser.ParseSelectStatement(input);

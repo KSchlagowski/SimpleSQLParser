@@ -6,7 +6,7 @@ using SimpleSQLParser.Visitors;
 
 namespace SimpleSQLParser.Parsers
 {
-    public class SelectParser
+    public class SelectParser : ISelectParser
     {
         public SelectStatement ParseSelectStatement(string input)
         {
@@ -15,7 +15,7 @@ namespace SimpleSQLParser.Parsers
             ITokenStream tokens = new CommonTokenStream(lexer);
             sqlParser parser = new sqlParser(tokens);
             IParseTree tree = parser.select_stmt();    
-            SelectVisitor visitor = new SelectVisitor();
+            ISelectVisitor visitor = new SelectVisitor();
             SelectStatement selectStatement = visitor.Visit(tree);
 
             return selectStatement;

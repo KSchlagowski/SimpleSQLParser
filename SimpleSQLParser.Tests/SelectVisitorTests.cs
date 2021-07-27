@@ -13,7 +13,7 @@ namespace SimpleSQLParser.Tests
         [Fact]
         public void Parse_SimpleStatement_ReturnsCorrectParsedTable()
         {
-            SelectParser selectParser = new SelectParser();
+            ISelectParser selectParser = new SelectParser();
             string input = "SELECT Name FROM Users";
 
             var returnedModel = selectParser.ParseSelectStatement(input);
@@ -26,7 +26,7 @@ namespace SimpleSQLParser.Tests
         [Fact]
         public void Parse_SimpleStatement_ReturnsCorrectParsedColumn()
         {
-            SelectParser selectParser = new SelectParser();
+            ISelectParser selectParser = new SelectParser();
             string input = "SELECT Name FROM Users";
 
             var returnedModel = selectParser.ParseSelectStatement(input);
@@ -39,7 +39,7 @@ namespace SimpleSQLParser.Tests
         [Fact]
         public void Parse_StatementWithAsterisk_ReturnsColumnNamedALL()
         {
-            SelectParser selectParser = new SelectParser();
+            ISelectParser selectParser = new SelectParser();
             string input = "SELECT * FROM Users";
 
             var returnedModel = selectParser.ParseSelectStatement(input);
@@ -52,7 +52,7 @@ namespace SimpleSQLParser.Tests
         [Fact]
         public void Parse_StatementWithSemicolon_ReturnsCorrectParsedTableAndColumn()
         {
-            SelectParser selectParser = new SelectParser();
+            ISelectParser selectParser = new SelectParser();
             string input = "SELECT Name FROM Users;";
 
             var returnedModel = selectParser.ParseSelectStatement(input);
@@ -69,7 +69,7 @@ namespace SimpleSQLParser.Tests
         [Fact]
         public void Parse_MoreComplexStatement_ReturnsCorrectParsedTablesAndColumns()
         {
-            SelectParser selectParser = new SelectParser();
+            ISelectParser selectParser = new SelectParser();
             string input = "SELECT u.Name, u.Surname, p.Id, p.ProductOwner FROM Users u, Product p";
 
             var returnedModel = selectParser.ParseSelectStatement(input);
@@ -86,7 +86,7 @@ namespace SimpleSQLParser.Tests
         [Fact]
         public void Parse_StatementWithJoinClause_ReturnsCorrectParsedTablesAndColumns()
         {
-            SelectParser selectParser = new SelectParser();
+            ISelectParser selectParser = new SelectParser();
             string input = "SELECT u.Name, u.Surname, p.Id, p.ProductOwner FROM Users u JOIN Product p ON Product.ProductOwner = User.FullName";
 
             var returnedModel = selectParser.ParseSelectStatement(input);
@@ -103,7 +103,7 @@ namespace SimpleSQLParser.Tests
         [Fact]
         public void Parse_StatementWithoutTables_ReturnsException()
         {
-            SelectParser selectParser = new SelectParser();
+            ISelectParser selectParser = new SelectParser();
             string input = "SELECT Name FROM";
 
             Action returnedModel = () => selectParser.ParseSelectStatement(input);

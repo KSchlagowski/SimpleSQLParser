@@ -4,7 +4,7 @@ using SimpleSQLParser.Models;
 
 namespace SimpleSQLParser.Visitors
 {
-    public class SelectVisitor : sqlBaseVisitor<SelectStatement>
+    public class SelectVisitor : sqlBaseVisitor<SelectStatement>, ISelectVisitor
     {
         public override SelectStatement VisitSelect_stmt([NotNull] sqlParser.Select_stmtContext context)
         {

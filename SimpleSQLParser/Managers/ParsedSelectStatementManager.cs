@@ -3,7 +3,7 @@ using SimpleSQLParser.Models;
 
 namespace SimpleSQLParser.Managers
 {
-    public class ParsedSelectStatementManager
+    public class ParsedSelectStatementManager : IParsedSelectStatementManager
     {
         public void ShowTablesAndColumnsInSelectStatement(string input, SelectStatement selectStmt)
         {
